@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd">
+        
+   <context:annotation-config />
+
+	<!-- <bean id = "heartObject" class = "com.seleniumexpress.autowired.Heart"></bean> -->
+
+	<!-- For autowire, bean id name and Heart reference variable name need to match -->
+	<bean id="humanHeart" class="com.seleniumexpress.autowired.Heart" >
+		<property name = "nameOfAnimal" value="Human" />
+		<property name = "noOfHeart" value="1" />
+	</bean>
+	<bean id="octopusHeart" class="com.seleniumexpress.autowired.Heart" >
+		<property name = "nameOfAnimal" value="Octopus" />
+		<property name = "noOfHeart" value="3" />
+	</bean>
+
+	<!-- <bean id="human" class="com.seleniumexpress.autowired.Human" autowire="byName"> -->
+	<!-- <bean id="human" class="com.seleniumexpress.autowired.Human" autowire="byType"> -->
+	<!-- <bean id="human" class="com.seleniumexpress.autowired.Human" autowire="constructor"> -->
+
+	<bean id="human" class="com.seleniumexpress.autowired.Human" />
+
+		<!-- <property name="heart" ref = "heartObject" /> This part is not required 
+			as it is achieved using autowire -->
+
+</beans>
+
+<!-- Internally
+Human human = new Human();
+human.setHeart(new Heart()); -->
+
+<!-- while spring creates the Human class Object
+Human human = new Human();
+Heart heartObjectValue = new Heart(); -->
+
+<!-- dependency injection with the constructor
+Human human = new Human(new Heart()); -->
