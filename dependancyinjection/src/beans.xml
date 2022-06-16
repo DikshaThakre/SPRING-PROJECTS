@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+               
+    <!-- Spring Setter Injection 
+      
+	<bean id = "student" class = "com.spring.di.Student">
+		<property name="studentName" value="Diksha Thakre" />
+		<property name="id" value="1" />
+	</bean> -->
+	
+	<!-- <bean id = "poonam" class = "com.spring.di.Student">
+		<property name="studentName" value="Poonam Thakre" />
+		<property name="id" value="2" />
+	</bean> -->
+	
+	
+	<!-- Spring Constructor Injection  -->  
+	
+	<bean id = "student" class = "com.spring.di.StudentCI">
+		<constructor-arg name="studentName" value="Diksha Thakre" type="java.lang.String" /> <!-- type is optional but its good to use to avoid ambiguity. -->
+		<constructor-arg name="id" value="1" />
+	</bean>
+	
+	<bean id = "sakshi" class = "com.spring.di.StudentCI">
+		<constructor-arg name="id" value="1" type="int" />
+	</bean>
+
+</beans>
